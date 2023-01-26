@@ -1,0 +1,3 @@
+# Assignment 1
+
+The website that piqued my interest was https://experiments.withgoogle.com/search?q=WebGL. The reason that I chose this particular website is because of how it seemed to consist of a lot of different projects that weren’t made by professionals. I do not mean to say this in any way to shame or make fun of the projects at all. Instead it stood out to me because they seemed like projects that don’t seem unachievable. A lot of them seem to be projects that if I studied WebGL for a few months and then perhaps followed a few tutorials of how to do certain things, I could actually potentially achieve something that could reach the caliber of some of the projects on there which excites me. 
