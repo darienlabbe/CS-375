@@ -30,7 +30,7 @@ function render() {
     let rotY = rotateY(cube.time);
     let rotZ = rotateZ(cube.time);
     let V = translate(0,0,-0.5 * (near + far));
-    let S = scalem(0.15,0.15,0.15);
+    let S = scalem(0.35,0.35,0.35);
 
     //Set transforms and render
     cube.P = perspective(fovy, aspect, near, far);
