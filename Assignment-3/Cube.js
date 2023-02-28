@@ -35,32 +35,32 @@ function Cube( gl, vertexShaderId, fragmentShaderId ) {
 
     // Initialize arrays for the Cube's vertex positions, indices, and colors
     let positions = [
-        -1.0, -1.0, -1.0,   // v0
-        -1.0,  1.0, -1.0,   // v1
-         1.0, -1.0, -1.0,   // v2
-         1.0,  1.0, -1.0,   // v3
-         1.0,  1.0,  1.0,   // v4
-         1.0, -1.0,  1.0,   // v5
-        -1.0, -1.0,  1.0,   // v6
-        -1.0,  1.0,  1.0 ]; // v7
+        -0.5, -0.5, -0.5,   // v0
+        -0.5,  0.5, -0.5,   // v1
+         0.5, -0.5, -0.5,   // v2
+         0.5,  0.5, -0.5,   // v3
+         0.5,  0.5,  0.5,   // v4
+         0.5, -0.5,  0.5,   // v5
+        -0.5, -0.5,  0.5,   // v6
+        -0.5,  0.5,  0.5 ]; // v7
     let numComponents = 3;  // (x,y,z)
 
     indices = [
-        0, 1, 2,  1, 3, 2,      // Front
-        4, 3, 2,  2, 4, 5,      // Right
-        5, 2, 0,  0, 5, 6,      // Top
-        6, 0, 1,  1, 6, 7,      // Left
-        7, 1, 3,  3, 7, 4,      // Bottom
-        4, 5, 7,  7, 6, 5 ];    // Back
+        0, 1, 2,  2, 1, 3,      // Front
+        0, 2, 6,  2, 5, 6,      // Top
+        6, 5, 4,  6, 4, 7,      // Back
+        4, 3, 7,  7, 3, 1,      // Bottom
+        2, 3, 5,  5, 3, 4,      // Right
+        1, 0, 7,  0, 6, 7 ];    // Left
 
     let colors = [
-        1, 0, 0, 1,    // c1: Red
-        0, 1, 1, 1,    // c2: Light Blue
-        0, 0, 1, 1,    // c3: Blue
-        1, 0, 1, 1,    // c4: Magenta
-        0, 1, 0, 1,    // c5: Green
-        1, 1, 1, 1 ];  // c6: White
-    let numColors = 4; //(r,g,b,a)
+        1.0, 0.0, 0.0, 1.0,    // c1: Red
+        1.0, 1.0, 0.0, 1.0,    // c2: Orange
+        0.0, 1.0, 1.0, 1.0,    // c3: Light Blue
+        1.0, 0.0, 1.0, 1.0,    // c4: Magenta
+        0.0, 1.0, 0.0, 1.0,    // c5: Green
+        0.0, 0.0, 1.0, 1.0 ];  // c6: Blue
+    let numColors = 4;         //(r,g,b,a)
 
     // Make new Attributes for aPosition and aColor, and create a new indices
     //   using helper.js
@@ -68,7 +68,7 @@ function Cube( gl, vertexShaderId, fragmentShaderId ) {
     let aPosition = new Attribute(gl, shaderProgram, positions,
         "aPosition", numComponents, gl.FLOAT );
     let aColor = new Attribute(gl, shaderProgram, colors,
-        "aColor", numColors, gl.UNSIGNED_BYTE);
+        "aColor", numColors, gl.FLOAT);
     indices = new Indices(gl, indices);
 
     // Make new uniforms for HTML file and give the uniforms default values to
@@ -106,7 +106,7 @@ function Cube( gl, vertexShaderId, fragmentShaderId ) {
         indices.enable();
 
         // Draw the cube in its entirety!
-        gl.drawElements( gl.TRIANGLE_STRIP, indices.count, indices.type, 0 );
+        gl.drawElements( gl.TRIANGLES, indices.count, indices.type, 0 );
 
         // Finally, reset our rendering state so that other objects we
         //   render don't try to use the Cube's data
