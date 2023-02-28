@@ -1,3 +1,11 @@
+//---------------------------------------------------------------------------
+//
+//  --- main.js ---
+//
+//    Author: Darien Labbe
+//
+//    Runs the main script that renders, in this case, a cube object
+
 //init function is only called after page is loaded
 window.onload = init;
 
@@ -32,10 +40,11 @@ function render() {
     let V = translate(0,0,-0.5 * (near + far));
     let S = scalem(0.35,0.35,0.35);
 
-    //Set transforms and render
+    //Set transforms to P and MV
     cube.P = perspective(fovy, aspect, near, far);
     cube.MV = mult(mult(mult(mult(V, rotX), rotY), rotZ), S);
 
+    //Render the cube object and request a new render again
     cube.render();
     requestAnimationFrame(render);
 }
