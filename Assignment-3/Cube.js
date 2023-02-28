@@ -2,6 +2,8 @@
 //
 //  --- Cube.js ---
 //
+//    Author: Darien Labbe
+//
 //    A simple, encapsulated Cube object
 
 //  All of the parameters of this function are optional, although, it's
