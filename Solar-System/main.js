@@ -16,7 +16,7 @@ function init() {
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
     gl.enable(gl.DEPTH_TEST);
    
-    // Add your sphere creation and configuration code here
+    // Planet declarations
     sun = new Sphere(50, 30);
     earth = new Sphere();
     moon = new Sphere();
@@ -31,6 +31,11 @@ function render() {
     let aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
     let near = 1;
     let far = 100;
+    let earthDistance = 0.23;
+    let moonDistance = 0.09;
+    sun.radius = 0.05;
+    earth.radius = 0.012;
+    moon.radius = 0.005;
 
     // Time variables
     sun.time += 0.5;
@@ -49,7 +54,7 @@ function render() {
 
     // Sun
     ms.push();
-    ms.scale(sun.radius = 0.05);
+    ms.scale(sun.radius);
     ms.mult(rotateZ(sun.time));
     sun.MV = ms.current();
     sun.render();
@@ -57,17 +62,17 @@ function render() {
     // Earth
     ms.push();
     ms.mult(rotateZ(earth.time));
-    ms.translate( 0.23, 0.0, 0.0);
+    ms.translate( earthDistance, 0.0, 0.0);
     ms.push();
     ms.mult(rotateZ(moon.time));
-    ms.scale(earth.radius = 0.012);
+    ms.scale(earth.radius);
     earth.MV = ms.current();
     earth.render();
     ms.pop();
     // Moon
     ms.mult(rotateZ(moon.time));
-    ms.translate(0.09, 0.0, 0.0);
-    ms.scale(moon.radius = 0.005);
+    ms.translate(moonDistance, 0.0, 0.0);
+    ms.scale(moon.radius);
     moon.MV = ms.current();
     moon.render();
     ms.pop();
