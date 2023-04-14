@@ -156,6 +156,7 @@ function Sphere( slices, stacks, vertexShader, fragmentShader ) {
     var color = gl.getUniformLocation(program, "color");
     if (color) { this.color = vec4(); }
 
+    // Time variable for animation
     this.time = 0.0;
 
     // Define our render() function
