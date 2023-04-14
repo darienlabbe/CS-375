@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<script src="initShaders.js"></script>
+<script src="MV.js"></script>
+<script src="MatrixStack.js"></script>
+<script src="Sphere.js"></script>
+<script src="main.js"></script>
+
+<script id="Sphere-vertex-shader" type="x-shader/x-vertex">
+    in  vec4 aPosition;
+    
+    uniform mat4 P;
+    uniform mat4 MV;
+
+    void main()
+    {
+        gl_PointSize = 3.0;
+        gl_Position = P * MV * aPosition;
+    }
+</script>
+<script id="Sphere-fragment-shader" type="x-shader/x-fragment">
+    precision highp float;
+
+    out vec4 fColor;
+
+    uniform vec4  color;
+
+    void main()
+    {
+        //fColor = vec4(1.0, 1.0, 1.0, 1.0);
+        fColor = color;
+    }
+</script>
+<canvas id="webgl-canvas" width="1200" height="900"></canvas>
