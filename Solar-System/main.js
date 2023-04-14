@@ -27,6 +27,7 @@ function init() {
 function render() {
     gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
 
+    // Variables
     let fovy = (45 * Math.PI) / 180;
     let aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
     let near = 1;
