@@ -1,2 +1,2 @@
 # Solar System Project 
-Here I will be adding my code for the solar system project
+Here I will be adding my code for the solar system project. The goal is to use the matrix stack to streamline the creation of a sun object, earth object, and moon object. The sun rotates on its own z-axis while the earth roates around it, to represent years, and rotates around itself to represent days. The moon rotates around the earth while the earth rotates around the sun.
