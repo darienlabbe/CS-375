@@ -1,0 +1,56 @@
+<!--- Project: A House   --->
+<!--- Class: CS 375      --->
+<!--- Name: Darien Labbe --->
+<!--- Date: 05/17/2023   --->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/house-styles.css"/>
+  <title>Project: A House</title>
+</head>
+  <body>
+    <div class="progress-bar-container">
+      <p style="font-size:60px">
+        Project: A House
+      </p>
+      <p>
+        Here I present my final project for the CS 375 Computer Graphics Course. In this project,<br/>
+        I have designed and assembled a 3D model that allows users to experience a semi-realistic<br/>
+        walk-through. While developing this project, I have incorporated various individual models<br/>
+        sourced online to save time and resources. Nevertheless, I alone have crafted the entire<br/>
+        model and implemented it into this website using three.js.<br/><br/>
+        I hope you enjoy!
+      </p>
+      <br><br>
+      <label for="progress-bar">LOADING . . .</label>
+      <progress id="progress-bar" value="0" max="100"></progress>
+    </div>
+    <div id="blocker">
+      <div id="instructions">
+        <p style="font-size:60px">
+          Click to Play
+        </p>
+        <p>
+          Move: W A S D<br/>
+          Look: MOUSE<br/>
+          Exit: ESC
+        </p>
+      </div>
+    </div>
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.152.2/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.152.2/examples/jsm/"
+      }
+    }
+    </script>
+    <script src="assets/js/house.js" type="module"></script>
+  </body>
+</html>
