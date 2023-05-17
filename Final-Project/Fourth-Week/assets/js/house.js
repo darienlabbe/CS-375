@@ -20,7 +20,6 @@ let moveForward = false;
 let moveBackward = false;
 let moveLeft = false;
 let moveRight = false;
-let canJump = false;
 let prevTime = performance.now();
 const velocity = new THREE.Vector3();
 const direction = new THREE.Vector3();
@@ -66,7 +65,7 @@ renderer.outputEncoding = THREE.sRGBEncoding;
 document.body.appendChild(renderer.domElement);
 
 var rgbeLoader = new RGBELoader(loadingManager);
-rgbeLoader.load('https://blue.cs.sonoma.edu/~dlabbe/Portfolio/assets/img/sunrise4k.hdr', function (hdri) {
+rgbeLoader.load('https://darien-labbe-portfolio.s3.us-east-2.amazonaws.com/assets/img/sunrise4k.hdr', function (hdri) {
     hdri.mapping = THREE.EquirectangularReflectionMapping;
     scene.background = hdri;
     scene.environment = hdri;
@@ -97,7 +96,7 @@ const listener = new THREE.AudioListener();
 camera.add(listener);
 const audioLoader = new THREE.AudioLoader();
 const backgroundSound = new THREE.Audio(listener);
-audioLoader.load('https://blue.cs.sonoma.edu/~dlabbe/Portfolio/assets/music/music.mp3', function(buffer) {
+audioLoader.load('https://darien-labbe-portfolio.s3.us-east-2.amazonaws.com/assets/music/music.mp3', function(buffer) {
    backgroundSound.setBuffer(buffer);
    backgroundSound.setLoop(true);
    backgroundSound.setVolume(0.06);
@@ -184,7 +183,7 @@ scene.add(groundMesh);
 
 // House
 const home = new GLTFLoader(loadingManager);
-home.load ('https://blue.cs.sonoma.edu/~dlabbe/Portfolio/assets/models/House.gltf',
+home.load ('https://darien-labbe-portfolio.s3.us-east-2.amazonaws.com/assets/models/House.gltf',
     function(gltf) {
         gltf.scene.scale.multiplyScalar(8);
         gltf.scene.traverse(function(node) {
@@ -205,7 +204,7 @@ home.load ('https://blue.cs.sonoma.edu/~dlabbe/Portfolio/assets/models/House.glt
 
 // Glass, Floor, and Plants
 const ground = new GLTFLoader(loadingManager);
-ground.load ('https://blue.cs.sonoma.edu/~dlabbe/Portfolio/assets/models/GlassFloorPlants.gltf',
+ground.load ('https://darien-labbe-portfolio.s3.us-east-2.amazonaws.com/assets/models/GlassFloorPlants.gltf',
     function(gltf) {
         gltf.scene.scale.multiplyScalar(8);
         gltf.scene.traverse(function(node) {
@@ -226,7 +225,7 @@ ground.load ('https://blue.cs.sonoma.edu/~dlabbe/Portfolio/assets/models/GlassFl
 
 // Couches and Living Room
 const couch = new GLTFLoader(loadingManager);
-couch.load ('https://blue.cs.sonoma.edu/~dlabbe/Portfolio/assets/models/Couches.gltf',
+couch.load ('https://darien-labbe-portfolio.s3.us-east-2.amazonaws.com/assets/models/Couches.gltf',
     function(gltf) {
         gltf.scene.scale.multiplyScalar(8);
         gltf.scene.traverse(function(node) {
@@ -247,7 +246,7 @@ couch.load ('https://blue.cs.sonoma.edu/~dlabbe/Portfolio/assets/models/Couches.
 
 // Dinning Table
 const table = new GLTFLoader(loadingManager);
-table.load ('https://blue.cs.sonoma.edu/~dlabbe/Portfolio/assets/models/Table.gltf',
+table.load ('https://darien-labbe-portfolio.s3.us-east-2.amazonaws.com/assets/models/Table.gltf',
     function(gltf) {
         gltf.scene.scale.multiplyScalar(8);
         gltf.scene.traverse(function(node) {
